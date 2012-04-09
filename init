@@ -1,0 +1,5 @@
+#!/bin/sh
+export PATH=/bin
+
+exec /voodoo/scripts/init_runner.sh
+
