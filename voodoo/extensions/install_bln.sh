@@ -7,7 +7,6 @@ binary_dest='/system/lib/hw/lights.s5pc110.so'
 extension_install_bln()
 {
 	cp $binary_source $binary_dest
-	# sets the suid permission
 	chmod 0644 $binary_dest
 	log "$name now installed"
 }
@@ -24,14 +23,14 @@ if install_condition; then
 		# okay, the bln binary exists
 		if test $source -nt $dest; then
 
-			# but it's older than ours ! let's updated it
+			# but it's older than ours, let''s update it
 			extension_install_bln
 		else
 			# ours is the same or older, don't touch it
 			log "$name already installed"
 		fi
 	else
-		# not here or not setup properly, let's install su
+		# not here or not setup properly, let's install bln
 		extension_install_bln
 	fi
 else
